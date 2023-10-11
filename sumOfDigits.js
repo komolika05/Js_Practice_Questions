@@ -5,5 +5,5 @@ function sum(value){
     .reduce((sum, digit) => 
             sum + parseInt(digit), 0); 
 }
-const answer = sum(6289)
+const answer = sum(1789)
 console.log(answer)
