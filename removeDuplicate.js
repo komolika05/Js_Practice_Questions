@@ -17,6 +17,6 @@ function getUnique(array){
     }
     return unique
 }
-array = [1,2,3,4,5,3,2,6,4,8,5,6,8,9,3,5,2]
-const uniqueArr =getUnique(array)
+a = [1,2,3,4,5,3,2,6,4,8,5,6,8,9,3,5,2]
+const uniqueArr =getUnique(a)
 console.log(uniqueArr)
