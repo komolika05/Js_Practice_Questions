@@ -1,0 +1,43 @@
+1. What are variables? Types of variables in javascript
+Ans: A variable is a “storage” for data. It is used to store varius kind of data like, 
+integer, values, arrays, objects, functions etc. 
+Types: let, const, var
+-let: let variables can be updated but not re-declared
+-const: const variables can neither be updated nor re-declared
+-var: var variables can be updated and re-declared within its scope
+
+
+2. What are arrays?
+Ans: An array is a collection of items of stored at contiguous memory locations. 
+An array has indexes. Indexing in arrays start from 0. 
+Any element in an array can be accessed using indexes. 
+Eg: [1,2,3,4], ["a", "b", "c"] ... 
+const arr = ["a",2,"b",4]
+arr[0] => "a"
+arr[1] => 2 .. and so on
+
+3. What are different data types in js? https://javascript.info/types
+Ans: Number, string, Boolean, null, undefined, object. 
+Eg: 1, "hello", true, null, undefined, {a: 1}
+
+4. What are objects?
+Ans: Objects contains of two things. Properties and methods. 
+The properties can be key-value pairs.
+Eg: CAR, 
+Car has properties like, size, color, weight. 
+Car has methods/behaviour like, start(), stop(), break(), drive()
+
+
+5. What are functions? And Syntax of a function
+Ans: A function is a block of code designed to perform a particular task.
+A function is executed when something invokes(calls) it.
+
+Syntax:
+here 'function' is a keyword to declare a function
+'function_name' is the name of the function
+function function_name(a,b) { // a,b are the "parameters" of the function
+    // block of function
+    return // A function always has a return type. By default it is "null".
+}
+
+function_name(1,2) // here 1,2 are the "arguments" passed to functions
