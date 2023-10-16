@@ -1,4 +1,4 @@
-//Find the middle element if array is odd
+//Find the middle element if array is odd or even
 
 function middleElement(array){
 
