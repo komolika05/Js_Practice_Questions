@@ -1,13 +1,22 @@
-//Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+//Given two strings s and t, return true if t is an anagram of s, and false otherwise
 
 function anagram(s, t) {
-  const arr1 = s.toLowerCase().split("").sort().join("");
-  const arr2 = t.toLowerCase().split("").sort().join("");
+  const arr1 = s.split("").sort();
+  const arr2 = t.split("").sort();
 
-  return arr1 === arr2;
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) {
+      return false;
+    }
+  }
+  return true;
 }
 
-const s = "Yash";
-const t = "Sayh";
+const s = "yash";
+const t = "sayh";
 
 console.log(anagram(s, t));
