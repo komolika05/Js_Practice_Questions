@@ -17,15 +17,27 @@ function factorial(n) {
 }
 
 function arrFactorial(arr) {
+  const output = {};
   const results = [];
   for (const i of arr) {
-    try {
-      results.push(factorial(i));
-    } catch (error) {
-      results.push(-1);
+    if (output[i]) {
+      results.push(output[i]);
+    } else {
+      try {
+        const result = factorial(i);
+        results.push(result);
+        output[i] = result;
+      } catch (error) {
+        results.push(-1);
+        output[i] = -1;
+      }
     }
   }
   return results;
 }
 const arr = [1, 3, null, 5];
 console.log(arrFactorial(arr));
+
+// pass the calculated factorials with its input into an object, then check for further values
+//if the input already exist in the object or not, if it does it returns the already calculated factorial,
+//if not it calculates the factorial and pass it to the object.
