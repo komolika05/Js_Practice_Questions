@@ -1,7 +1,7 @@
 //Write a function to calculate factorial of a number. The function should not accept invalid inputs and should throw respective error message.
 
 function factorial(n) {
-  if (typeof n !== "number" || n < 0) {
+  if (typeof n !== "number" || n < 0 || !Number.isInteger(n)) {
     throw new Error("Invalid Input");
   }
 
@@ -16,4 +16,16 @@ function factorial(n) {
   return result;
 }
 
-console.log(factorial(6));
+function arrFactorial(arr) {
+  const results = [];
+  for (const i of arr) {
+    try {
+      results.push(factorial(i));
+    } catch (error) {
+      results.push(-1);
+    }
+  }
+  return results;
+}
+const arr = [1, 3, null, 5];
+console.log(arrFactorial(arr));
