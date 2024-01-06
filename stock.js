@@ -16,19 +16,34 @@ then your program should return -1. For example: arr is [10, 9, 8, 2] then your 
 */
 
 function StockPicker(arr) {
+  let i = 0;
+  let j = i + 1;
   let profit = 0;
   let maxProfit = -1;
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[j] > arr[i]) {
-        profit = arr[j] - arr[i];
-        if (profit > maxProfit) {
-          maxProfit = profit;
-        }
-      }
+
+  while (j < arr.length) {
+    profit = arr[j] - arr[i];
+
+    if (profit > maxProfit) {
+      maxProfit = profit;
     }
+
+    if (arr[j] < arr[i]) {
+      j = i + 1;
+      i = j;
+    }
+    j++;
   }
   return maxProfit;
+
+  // i is at first postion
+  // j is at i+1 position
+
+  // the calculated profit will be the max profit between element[i] and element[j]
+  // i.e: profit = arr[j] - arr[i]
+  // if (profit > maxProfit) maxProfit = profit
+
+  // if (arr[j] < arr[i]) i = j; j = i+1
 }
 
 const inputs = [
