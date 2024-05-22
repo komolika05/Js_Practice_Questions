@@ -2,40 +2,14 @@ class World {
   constructor() {
     this.cities = [];
   }
+
   addCity(cityName) {
     const city = new City(cityName);
     this.cities.push(city);
   }
 
-  addPersonToCity(cityName, personName, personAge) {
-    const city = this.cities.find((c) => c.name === cityName);
-    if (city) {
-      const person = new Person(personName, personAge);
-      city.people.push(person);
-    } else {
-      console.log(`City ${cityName} not found`);
-    }
-  }
-
-  getAllPeopleInCity(cityName) {
-    const city = this.cities.find((c) => c.name === cityName);
-    if (city) {
-      return city.people;
-    } else {
-      console.log(`City ${cityName} not found`);
-      return [];
-    }
-  }
-
-  getAverageInCity(cityName) {
-    const city = this.cities.find((c) => c.name === cityName);
-    if (city) {
-      const totalAge = city.people.reduce((sum, person) => sum + person.age, 0);
-      return city.people.length ? Math.round(totalAge / city.people.length) : 0;
-    } else {
-      console.log(`City ${cityName} not found`);
-      return 0;
-    }
+  findCity(cityName) {
+    return this.cities.find((c) => c.name === cityName);
   }
 }
 
@@ -44,8 +18,21 @@ class City {
     this.name = name;
     this.people = [];
   }
-}
 
+  addPerson(personName, personAge) {
+    const person = new Person(personName, personAge);
+    this.people.push(person);
+  }
+
+  getAllPeople() {
+    return this.people;
+  }
+
+  getAverageAge() {
+    const totalAge = this.people.reduce((sum, person) => sum + person.age, 0);
+    return this.people.length ? Math.round(totalAge / this.people.length) : 0;
+  }
+}
 class Person {
   constructor(name, age) {
     this.name = name;
@@ -58,22 +45,25 @@ const world = new World();
 world.addCity("Pune");
 world.addCity("Indore");
 
-world.addPersonToCity("Pune", "eena", 34);
-world.addPersonToCity("Pune", "Meena", 26);
-world.addPersonToCity("Pune", "Deeka", 32);
+const pune = world.findCity("Pune");
+const indore = world.findCity("Indore");
 
-world.addPersonToCity("Indore", "Ram", 89);
-world.addPersonToCity("Indore", "Shyaam", 54);
-world.addPersonToCity("Indore", "Rahul", 16);
+pune.addPerson("Eena", 34);
+pune.addPerson("Meena", 26);
+pune.addPerson("Deeka", 32);
 
-const peopleInPune = world.getAllPeopleInCity("Pune");
-console.log("People in Pune ", peopleInPune);
+indore.addPerson("Ram", 89);
+indore.addPerson("Shyaam", 54);
+indore.addPerson("Rahul", 16);
 
-const averageAgeInPune = world.getAverageInCity("Pune");
-console.log("Average age in Pune ", averageAgeInPune);
+const peopleInPune = pune.getAllPeople();
+console.log("People in Pune:", peopleInPune);
 
-const peopleInIndore = world.getAllPeopleInCity("Indore");
-console.log("People in Indore ", peopleInIndore);
+const averageAgeInPune = pune.getAverageAge();
+console.log("Average age in Pune:", averageAgeInPune);
 
-const averageAgeInIndore = world.getAverageInCity("Indore");
-console.log("Average age in Indore ", averageAgeInIndore);
+const peopleInIndore = indore.getAllPeople();
+console.log("People in Indore:", peopleInIndore);
+
+const averageAgeInIndore = indore.getAverageAge();
+console.log("Average age in Indore:", averageAgeInIndore);
