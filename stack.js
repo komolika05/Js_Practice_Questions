@@ -11,7 +11,9 @@ class Stack {
     if (this.isEmpty()) {
       return "Stack is empty";
     }
-    return this.items.pop();
+    const lastElement = this.items[this.items.length - 1];
+    this.items.length = this.items.length - 1;
+    return lastElement;
   }
   peek() {
     if (this.isEmpty()) {
