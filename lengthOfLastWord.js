@@ -7,12 +7,11 @@ function lastWord(sentence) {
 }
 
 function lengthOfLastWord(word) {
-  const arr = word.split("");
   let count = 0;
-  for (let i of arr) {
+  for (let s of word) {
     count += 1;
   }
   return count;
 }
 
-console.log(lastWord("My name is yashika"));
+console.log(lastWord("luffy is still joyboy"));
