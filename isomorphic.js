@@ -19,9 +19,8 @@ function isomorphic(s, t) {
       }
       sObj[elementS] = elementT;
     }
-    console.log(sObj);
   }
   return true;
 }
 
-console.log(isomorphic("egg", "add"));
+console.log(isomorphic("badc", "baba"));
